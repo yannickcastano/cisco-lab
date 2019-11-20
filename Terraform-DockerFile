@@ -2,6 +2,6 @@ FROM hashicorp/terraform:full
 
 RUN mkdir /cisco
 RUN curl https://raw.githubusercontent.com/yannickcastano/cisco-lab/master/aci-provisionning.tf >> /cisco/aci-provisionning.tf
-RUN terraform init /terraform
+RUN terraform init /cisco
 
 ENTRYPOINT ["terraform"]
