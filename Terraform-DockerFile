@@ -3,8 +3,7 @@ FROM hashicorp/terraform:full
 RUN apk add --update curl
 RUN mkdir /cisco
 RUN curl https://raw.githubusercontent.com/yannickcastano/cisco-lab/master/aci-provisionning.tf >> /cisco/aci-provisionning.tf
-RUN terraform init /cisco
 WORKDIR /cisco
-RUN /bin/bash
+RUN terraform init
 
-# ENTRYPOINT ["terraform"]
+ENTRYPOINT ["/bin/bash"]
