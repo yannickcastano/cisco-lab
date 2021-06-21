@@ -45,48 +45,6 @@ bridge_domain_dn = aci_bridge_domain.Production_segment_102.id
 ip = "192.168.102.254/24"
 description = "This object is managed by Terraform"
 }
-#- network segment 103
-resource "aci_application_epg" "Production_segment_103" {
-application_profile_dn = aci_application_profile.Production_segments.id
-name = "Production_segment_103"
-relation_fv_rs_bd = aci_bridge_domain.Production_segment_103.name
-relation_fv_rs_dom_att = ["${local.physDom}"]
-relation_fv_rs_cons = ["${aci_contract.Contract_open.name}"]
-relation_fv_rs_prov = ["${aci_contract.Contract_open.name}"]
-description = "This object is managed by Terraform"
-}
-resource "aci_bridge_domain" "Production_segment_103" {
-tenant_dn = aci_tenant.Terraform_provisionning.id
-relation_fv_rs_ctx = aci_vrf.Production.name
-name = "Production_segment_103"
-description = "This object is managed by Terraform"
-}
-resource "aci_subnet" "Subnet_103" {
-bridge_domain_dn = aci_bridge_domain.Production_segment_103.id
-ip = "192.168.103.254/24"
-description = "This object is managed by Terraform"
-}
-#- network segment 105
-resource "aci_application_epg" "Production_segment_105" {
-application_profile_dn = aci_application_profile.Production_segments.id
-name = "Production_segment_105"
-relation_fv_rs_bd = aci_bridge_domain.Production_segment_105.name
-relation_fv_rs_dom_att = ["${local.physDom}"]
-relation_fv_rs_cons = ["${aci_contract.Contract_open.name}"]
-relation_fv_rs_prov = ["${aci_contract.Contract_open.name}"]
-description = "This object is managed by Terraform"
-}
-resource "aci_bridge_domain" "Production_segment_105" {
-tenant_dn = aci_tenant.Terraform_provisionning.id
-relation_fv_rs_ctx = aci_vrf.Production.name
-name = "Production_segment_105"
-description = "This object is managed by Terraform"
-}
-resource "aci_subnet" "Subnet_105" {
-bridge_domain_dn = aci_bridge_domain.Production_segment_105.id
-ip = "192.168.105.254/24"
-description = "This object is managed by Terraform"
-}
 #----- ACI contracts -----
 resource "aci_contract" "Contract_open" {
 tenant_dn = aci_tenant.Terraform_provisionning.id
