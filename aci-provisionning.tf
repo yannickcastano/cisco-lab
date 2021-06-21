@@ -1,12 +1,6 @@
 locals {
 physDom = "Baremetals_Physical_Domain"
 }
-terraform {
-  required_providers {
-    aci = {
-      source = "ciscodevnet/aci"
-    }
-}
 provider "aci" {
 username = "admin"
 password = "cisco123"
